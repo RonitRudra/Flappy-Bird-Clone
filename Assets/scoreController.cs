@@ -2,7 +2,10 @@
 using System.Collections;
 using UnityEngine.UI;
 
-public class scoreController : MonoBehaviour {
+public class ScoreController : MonoBehaviour {
+	// Displays Score on Screen
+	// Saves Highscore in PlayerPrefs
+	
 	private PlayerController player;
 	private Text text;
 	// Use this for initialization
@@ -18,6 +21,16 @@ public class scoreController : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		// Update Score every frame
+		PreferenceManager.setCurrentScore(player.getScore());
 		text.text = player.getScore().ToString();
+		
+	}
+	
+	public void updateScores(){
+		float highscore = PreferenceManager.getHighScore();
+		float currentscore = PreferenceManager.getCurrentScore();
+		if(currentscore>highscore){
+			PreferenceManager.setHighScore(currentscore);
+		}
 	}
 }

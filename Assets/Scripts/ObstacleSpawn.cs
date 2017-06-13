@@ -9,14 +9,21 @@ public class ObstacleSpawn : MonoBehaviour {
 	// Prefab to use
 	public GameObject pipePrefab;
 	// Velocity of approach
-	public float velocity = 5;
-	
+	private float velocity;
+	// Preset repeat intervals for difficulty level
+	private float[] repeatTime = new float[] {2.5f,2f,1.5f,1f,0.5f};
 	#endregion
+	
+	void Awake(){
+		// Add 1 velocity for each level of difficulty
+		velocity = 4+PreferenceManager.getDifficulty();
+	}
 	// Use this for initialization
 	void Start () {
 		// TODO Change invoke times according to difficulty
 		// Call placePipe every x seconds
-		InvokeRepeating("placePipe",3f,2.5f);
+		// index repeat time through difficulty setting
+		InvokeRepeating("placePipe",3f,repeatTime[System.Convert.ToInt32(PreferenceManager.getDifficulty()-1)]);
 	}
 	
 	// Update is called once per frame

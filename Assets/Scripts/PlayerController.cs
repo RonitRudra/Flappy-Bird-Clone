@@ -8,10 +8,12 @@ public class PlayerController : MonoBehaviour {
 	// Vertical Velocity
 	private float velocity = 4;
 	private float score = 0;
+	private AudioSource bird_sfx;
 	// Use this for initialization
 	void Start () {
 		// Find Rigidbody2D component
 		bird = gameObject.GetComponent<Rigidbody2D>();
+		bird_sfx = gameObject.GetComponent<AudioSource>();
 	
 	}
 	
@@ -20,6 +22,8 @@ public class PlayerController : MonoBehaviour {
 		// Give velocity in Y direction on pressing Space
 		if(Input.GetKeyDown(KeyCode.Space)){
 			bird.velocity = new Vector3(0,velocity,0);
+			bird_sfx.Play();
+			
 		}
 	}
 	
