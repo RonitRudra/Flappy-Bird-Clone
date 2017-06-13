@@ -46,10 +46,13 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\LevelManager.cs" />
      <Compile Include="Assets\Scripts\ObstacleSpawn.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\collisionDetect.cs" />
      <Compile Include="Assets\Scripts\scroll.cs" />
+     <Compile Include="Assets\Shredder.cs" />
+     <Compile Include="Assets\scoreController.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>E:/Development/Unity/4.6.9/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.9/Standalone/UnityEngine.UI.dll</HintPath>
  </Reference>

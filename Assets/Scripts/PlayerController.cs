@@ -7,10 +7,11 @@ public class PlayerController : MonoBehaviour {
 	private Rigidbody2D bird;
 	// Vertical Velocity
 	private float velocity = 4;
+	private float score = 0;
 	// Use this for initialization
 	void Start () {
-		// Find Rigidbody2D component in child
-		bird = gameObject.GetComponentInChildren<Rigidbody2D>();
+		// Find Rigidbody2D component
+		bird = gameObject.GetComponent<Rigidbody2D>();
 	
 	}
 	
@@ -20,6 +21,19 @@ public class PlayerController : MonoBehaviour {
 		if(Input.GetKeyDown(KeyCode.Space)){
 			bird.velocity = new Vector3(0,velocity,0);
 		}
+	}
+	
+	// Increase score on exiting score collider (in pipe gap)
+	void OnTriggerExit2D(Collider2D collider){
+		if(collider.tag=="ScoreCollider"){
+			//Debug.Log ("Score");
+			score++;
+		}
+	}
+	
+	// getter method for score
+	public float getScore(){
+		return score;
 	}
 	
 }
