@@ -22,9 +22,4 @@ public class PlayerController : MonoBehaviour {
 		}
 	}
 	
-	//TODO Write Collision Functions
-	
-	void OnTriggerEnter2D(Collider2D collider){
-		Debug.Log ("Collision Occured");
-	}
 }
